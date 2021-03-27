@@ -123,7 +123,7 @@ FROM cd.bookings AS A
 INNER JOIN cd.facilities AS B 
 ON A.facid=B.facid
 WHERE B.name LIKE 'Tennis Court%'
-AND A.starttime > '2012-09-21'
+AND A.starttime > ='2012-09-21'
 AND A.starttime < '2012-09-22'
 ORDER BY A.starttime;
 
@@ -145,10 +145,9 @@ ORDER BY starttime;
 13. How can you produce a list of the start times for bookings by members named 'David Farrell'?
 Expected result is 34 rows of timestamps
 */
-
 SELECT A.starttime
 FROM cd.bookings AS A
-LEFT JOIN cd.members AS B
+INNER JOIN cd.members AS B
 ON A.memid = B.memid
-WHERE B.firstname ILIKE 'David'
-AND B.surname ILIKE 'FarrelL';
+WHERE B.firstname = 'David'
+AND B.surname = 'Farrell';
